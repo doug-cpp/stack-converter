@@ -1,0 +1,82 @@
+{
+  "key": "8bf12d526f04bb07376f4b69ebe4a6a1e68d6879c4bf3bd6f5883cdf82e5053f",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "characterizer",
+    "schema": "CharacterizationProposal"
+  },
+  "response": {
+    "cases": [
+      {
+        "args": [
+          100.0,
+          "gold",
+          "SAVE10"
+        ],
+        "expected_output": null,
+        "function_name": "compute_discounted_subtotal",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          250.0,
+          "silver",
+          "WELCOME20"
+        ],
+        "expected_output": null,
+        "function_name": "compute_discounted_subtotal",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          100.0,
+          "gold",
+          "SAVE10",
+          "US_CA"
+        ],
+        "expected_output": null,
+        "function_name": "compute_final_price",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          250.0,
+          "silver",
+          "WELCOME20",
+          "EU_DE"
+        ],
+        "expected_output": null,
+        "function_name": "compute_final_price",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          100.0,
+          2
+        ],
+        "expected_output": null,
+        "function_name": "estimate_bulk_unit_price",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          250.0,
+          3
+        ],
+        "expected_output": null,
+        "function_name": "estimate_bulk_unit_price",
+        "kwargs": {},
+        "raises_exception": null
+      }
+    ],
+    "module_id": "pricing"
+  }
+}

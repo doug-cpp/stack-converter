@@ -1,0 +1,39 @@
+{
+  "key": "6c83934927de2bc81fc0a0c59579b7e0496c99bbc798bee769472f5f06c9c81c",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "documenter",
+    "schema": "NodeDoc"
+  },
+  "response": {
+    "concurrency_model": "Synchronous single-threaded execution",
+    "edge_cases": [
+      "Empty inputs",
+      "Zero or negative numeric values"
+    ],
+    "error_model": "Raises standard Error on invalid domain parameters",
+    "external_dependencies": [
+      "ctypes",
+      "numpy",
+      "pandas"
+    ],
+    "inputs": [
+      "Module-level inputs"
+    ],
+    "invariants": [
+      "Deterministic outputs for identical inputs",
+      "Strict numeric and string bounds"
+    ],
+    "node_id": "matrix_engine",
+    "outputs": [
+      "Deterministic return value"
+    ],
+    "purpose": "Core scientific matrix solver using numpy and pandas vectorization.",
+    "side_effects": [
+      "None (pure computation)"
+    ]
+  }
+}

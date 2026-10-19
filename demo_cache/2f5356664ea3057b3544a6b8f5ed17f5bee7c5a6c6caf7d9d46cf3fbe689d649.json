@@ -1,0 +1,115 @@
+{
+  "key": "2f5356664ea3057b3544a6b8f5ed17f5bee7c5a6c6caf7d9d46cf3fbe689d649",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "characterizer",
+    "schema": "CharacterizationProposal"
+  },
+  "response": {
+    "cases": [
+      {
+        "args": [
+          [
+            100.0,
+            250.5,
+            49.5
+          ]
+        ],
+        "expected_output": null,
+        "function_name": "aggregate_revenue",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          [
+            50.0,
+            150.0
+          ]
+        ],
+        "expected_output": null,
+        "function_name": "aggregate_revenue",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          [
+            100.0,
+            250.5,
+            49.5
+          ]
+        ],
+        "expected_output": null,
+        "function_name": "average_order_value",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          [
+            50.0,
+            150.0
+          ]
+        ],
+        "expected_output": null,
+        "function_name": "average_order_value",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          100.0
+        ],
+        "expected_output": null,
+        "function_name": "classify_customer_tier",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          250.0
+        ],
+        "expected_output": null,
+        "function_name": "classify_customer_tier",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          [
+            100.0,
+            250.5,
+            49.5
+          ],
+          "gold",
+          "SAVE10",
+          "US_CA"
+        ],
+        "expected_output": null,
+        "function_name": "simulate_regional_campaign",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          [
+            50.0,
+            150.0
+          ],
+          "silver",
+          "WELCOME20",
+          "EU_DE"
+        ],
+        "expected_output": null,
+        "function_name": "simulate_regional_campaign",
+        "kwargs": {},
+        "raises_exception": null
+      }
+    ],
+    "module_id": "analytics"
+  }
+}

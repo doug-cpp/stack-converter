@@ -1,0 +1,35 @@
+{
+  "key": "c30545faf6b5279cdd1d052438a329d879b0ad2f2ee2ccb3c08a730fb18b327c",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "documenter",
+    "schema": "NodeDoc"
+  },
+  "response": {
+    "concurrency_model": "Synchronous single-threaded execution",
+    "edge_cases": [
+      "Empty inputs",
+      "Zero or negative numeric values"
+    ],
+    "error_model": "Raises standard Error on invalid domain parameters",
+    "external_dependencies": [],
+    "inputs": [
+      "Module-level inputs"
+    ],
+    "invariants": [
+      "Deterministic outputs for identical inputs",
+      "Strict numeric and string bounds"
+    ],
+    "node_id": "tax_rules",
+    "outputs": [
+      "Deterministic return value"
+    ],
+    "purpose": "Tax calculation and currency rounding primitives (Topological Level 0).",
+    "side_effects": [
+      "None (pure computation)"
+    ]
+  }
+}

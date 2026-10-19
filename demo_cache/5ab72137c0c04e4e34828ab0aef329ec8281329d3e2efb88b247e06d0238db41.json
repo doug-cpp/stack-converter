@@ -1,0 +1,23 @@
+{
+  "key": "5ab72137c0c04e4e34828ab0aef329ec8281329d3e2efb88b247e06d0238db41",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "translator",
+    "schema": "ModuleCode"
+  },
+  "response": {
+    "exported_signatures": [
+      "export function aggregate_revenue(revenues: Array<number>): number",
+      "export function average_order_value(revenues: Array<number>): number",
+      "export function classify_customer_tier(annual_spend: number): string",
+      "export function simulate_regional_campaign(gross_amounts: Array<number>, tier: string, coupon_code: string, region: string): number"
+    ],
+    "module_id": "analytics",
+    "notes": "Deterministically translated analytics from Python AST to strict TypeScript.",
+    "target_path": "src/analytics.ts",
+    "typescript_code": "/**\n * Revenue aggregation and customer loyalty classification (Topological Level 2).\n */\n\nimport { compute_invoice_net_total } from \"./invoice\";\n\nimport { compute_final_price } from \"./pricing\";\n\nimport { round_currency } from \"./tax_rules\";\n\nexport function aggregate_revenue(revenues: Array<number>): number {\n  let total = 0.0;\n  for (const rev of revenues) {\n    if ((rev > 0.0)) {\n      total += rev;\n    }\n  }\n  return round_currency(total, 2);\n}\n\nexport function average_order_value(revenues: Array<number>): number {\n  let valid = revenues.filter((r) => (r > 0.0)).map((r) => r);\n  if ((valid.length === 0)) {\n    return 0.0;\n  }\n  return round_currency((valid.reduce((acc: number, val: number) => acc + val, 0) / valid.length), 2);\n}\n\nexport function classify_customer_tier(annual_spend: number): string {\n  if ((annual_spend >= 5000.0)) {\n    return \"platinum\";\n  }\n  if ((annual_spend >= 1500.0)) {\n    return \"gold\";\n  }\n  if ((annual_spend >= 500.0)) {\n    return \"silver\";\n  }\n  return \"standard\";\n}\n\nexport function simulate_regional_campaign(gross_amounts: Array<number>, tier: string, coupon_code: string, region: string): number {\n  let campaign_total = 0.0;\n  for (const amt of gross_amounts) {\n    campaign_total += compute_final_price(amt, tier, coupon_code, region);\n  }\n  let bonus_invoice = compute_invoice_net_total(gross_amounts, tier, region);\n  return round_currency(((campaign_total + bonus_invoice) / 2.0), 2);\n}\n"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "key": "787807dbf9c5759a987f27a0adcd4b9b98b506f5c3ffe7f6d8f149178c30b0cc",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "documenter",
+    "schema": "NodeDoc"
+  },
+  "response": {
+    "concurrency_model": "Synchronous single-threaded execution",
+    "edge_cases": [
+      "Empty inputs",
+      "Zero or negative numeric values"
+    ],
+    "error_model": "Raises standard Error on invalid domain parameters",
+    "external_dependencies": [
+      "invoice",
+      "pricing",
+      "tax_rules"
+    ],
+    "inputs": [
+      "Module-level inputs"
+    ],
+    "invariants": [
+      "Deterministic outputs for identical inputs",
+      "Strict numeric and string bounds"
+    ],
+    "node_id": "analytics",
+    "outputs": [
+      "Deterministic return value"
+    ],
+    "purpose": "Revenue aggregation and customer loyalty classification (Topological Level 2).",
+    "side_effects": [
+      "None (pure computation)"
+    ]
+  }
+}

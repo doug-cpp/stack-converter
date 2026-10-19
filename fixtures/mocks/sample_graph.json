@@ -1,0 +1,43 @@
+{
+  "source_root": "/mock/project",
+  "nodes": [
+    {
+      "id": "math_utils",
+      "name": "math_utils",
+      "node_type": "module",
+      "file_path": "math_utils.py",
+      "line_start": 1,
+      "line_end": 20,
+      "signature": null,
+      "parameters": [],
+      "return_annotation": null,
+      "is_public": true,
+      "docstring": "Basic math utilities.",
+      "source_code": "def add_numbers(a: float, b: float) -> float:\n    return a + b\n",
+      "imports": []
+    },
+    {
+      "id": "billing",
+      "name": "billing",
+      "node_type": "module",
+      "file_path": "billing.py",
+      "line_start": 1,
+      "line_end": 25,
+      "signature": null,
+      "parameters": [],
+      "return_annotation": null,
+      "is_public": true,
+      "docstring": "Billing calculation module.",
+      "source_code": "from math_utils import add_numbers\n\ndef compute_total(subtotal: float, tax: float) -> float:\n    return add_numbers(subtotal, tax)\n",
+      "imports": ["math_utils"]
+    }
+  ],
+  "edges": [
+    {
+      "source": "billing",
+      "target": "math_utils",
+      "edge_type": "imports",
+      "line": 1
+    }
+  ]
+}

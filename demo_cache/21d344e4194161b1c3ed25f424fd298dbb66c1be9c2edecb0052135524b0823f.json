@@ -1,0 +1,38 @@
+{
+  "key": "21d344e4194161b1c3ed25f424fd298dbb66c1be9c2edecb0052135524b0823f",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "documenter",
+    "schema": "NodeDoc"
+  },
+  "response": {
+    "concurrency_model": "Synchronous single-threaded execution",
+    "edge_cases": [
+      "Empty inputs",
+      "Zero or negative numeric values"
+    ],
+    "error_model": "Raises standard Error on invalid domain parameters",
+    "external_dependencies": [
+      "concurrent",
+      "multiprocessing"
+    ],
+    "inputs": [
+      "Module-level inputs"
+    ],
+    "invariants": [
+      "Deterministic outputs for identical inputs",
+      "Strict numeric and string bounds"
+    ],
+    "node_id": "parallel_worker",
+    "outputs": [
+      "Deterministic return value"
+    ],
+    "purpose": "CPU-bound multi-core worker pool with shared memory buffers.",
+    "side_effects": [
+      "None (pure computation)"
+    ]
+  }
+}

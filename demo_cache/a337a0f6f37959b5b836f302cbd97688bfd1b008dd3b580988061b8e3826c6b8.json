@@ -1,0 +1,38 @@
+{
+  "key": "a337a0f6f37959b5b836f302cbd97688bfd1b008dd3b580988061b8e3826c6b8",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "documenter",
+    "schema": "NodeDoc"
+  },
+  "response": {
+    "concurrency_model": "Synchronous single-threaded execution",
+    "edge_cases": [
+      "Empty inputs",
+      "Zero or negative numeric values"
+    ],
+    "error_model": "Raises standard Error on invalid domain parameters",
+    "external_dependencies": [
+      "discounts",
+      "tax_rules"
+    ],
+    "inputs": [
+      "Module-level inputs"
+    ],
+    "invariants": [
+      "Deterministic outputs for identical inputs",
+      "Strict numeric and string bounds"
+    ],
+    "node_id": "invoice",
+    "outputs": [
+      "Deterministic return value"
+    ],
+    "purpose": "Invoice line-item calculation and breakdown generation (Topological Level 1).",
+    "side_effects": [
+      "None (pure computation)"
+    ]
+  }
+}

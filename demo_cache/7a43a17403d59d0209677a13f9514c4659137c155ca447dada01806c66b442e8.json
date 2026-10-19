@@ -1,0 +1,23 @@
+{
+  "key": "7a43a17403d59d0209677a13f9514c4659137c155ca447dada01806c66b442e8",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "translator",
+    "schema": "ModuleCode"
+  },
+  "response": {
+    "exported_signatures": [
+      "export function round_currency(amount: number, decimals: number = 2): number",
+      "export function lookup_tax_rate(region: string): number",
+      "export function calculate_tax(subtotal: number, region: string): number",
+      "export function effective_tax_rate(subtotal: number, tax_amount: number): number"
+    ],
+    "module_id": "tax_rules",
+    "notes": "Deterministically translated tax_rules from Python AST to strict TypeScript.",
+    "target_path": "src/tax_rules.ts",
+    "typescript_code": "/**\n * Tax calculation and currency rounding primitives (Topological Level 0).\n */\n\nexport function round_currency(amount: number, decimals: number = 2): number {\n  if ((decimals < 0)) {\n    throw new Error(\"Decimals must be non-negative\");\n  }\n  return (Math.round((amount + Number.EPSILON) * Math.pow(10, decimals)) / Math.pow(10, decimals));\n}\n\nexport function lookup_tax_rate(region: string): number {\n  let code = region.trim().toUpperCase();\n  if ((code === \"US_CA\")) {\n    return 0.0825;\n  }\n  if ((code === \"US_NY\")) {\n    return 0.08875;\n  }\n  if ((code === \"US_OR\")) {\n    return 0.0;\n  }\n  if ((code === \"EU_DE\")) {\n    return 0.19;\n  }\n  if ((code === \"EU_FR\")) {\n    return 0.2;\n  }\n  if ((code === \"BR_SP\")) {\n    return 0.18;\n  }\n  return 0.05;\n}\n\nexport function calculate_tax(subtotal: number, region: string): number {\n  if ((subtotal <= 0.0)) {\n    return 0.0;\n  }\n  let rate = lookup_tax_rate(region);\n  return round_currency((subtotal * rate), 2);\n}\n\nexport function effective_tax_rate(subtotal: number, tax_amount: number): number {\n  if ((subtotal <= 0.0)) {\n    return 0.0;\n  }\n  return round_currency((tax_amount / subtotal), 4);\n}\n"
+  }
+}

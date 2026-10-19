@@ -1,0 +1,101 @@
+{
+  "key": "ca5bef1d4d33ae182bd0f0bd03cdf75c45e87fc1f7625c5ccf1b7826d1e889cf",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "judge",
+    "schema": "JudgmentResult"
+  },
+  "response": {
+    "judgments": [
+      {
+        "adjusted_risk_level": "medium",
+        "classification": "peripheral",
+        "evidence_id": "ev_ecosystem_1",
+        "incompatibility_argument": "Pattern 'External dependency 'ctypes' is not mapped in libmap/python_to_ts.yaml.' in 'matrix_engine.py' relies on Python runtime/ecosystem semantics lacking a 1:1 native TypeScript/Node.js equivalent.",
+        "mitigation_argument": "Could attempt to offload ecosystem pattern in 'matrix_engine.py' to worker_threads or external service.",
+        "rationale": "Classified as peripheral with medium risk based on module centrality and AST pattern (ecosystem)."
+      },
+      {
+        "adjusted_risk_level": "high",
+        "classification": "central",
+        "evidence_id": "ev_runtime_1",
+        "incompatibility_argument": "Pattern 'Low-level runtime/memory dependency 'ctypes' cannot be directly translated to TypeScript.' in 'matrix_engine.py' relies on Python runtime/ecosystem semantics lacking a 1:1 native TypeScript/Node.js equivalent.",
+        "mitigation_argument": "Could attempt to offload runtime pattern in 'matrix_engine.py' to worker_threads or external service.",
+        "rationale": "Classified as central with high risk based on module centrality and AST pattern (runtime)."
+      },
+      {
+        "adjusted_risk_level": "high",
+        "classification": "central",
+        "evidence_id": "ev_ecosystem_2",
+        "incompatibility_argument": "Pattern 'Unsupported dependency 'numpy': No mature equivalent for N-dimensional SIMD C/Fortran arrays and broadcasting in Node.js.' in 'matrix_engine.py' relies on Python runtime/ecosystem semantics lacking a 1:1 native TypeScript/Node.js equivalent.",
+        "mitigation_argument": "Could attempt to offload ecosystem pattern in 'matrix_engine.py' to worker_threads or external service.",
+        "rationale": "Classified as central with high risk based on module centrality and AST pattern (ecosystem)."
+      },
+      {
+        "adjusted_risk_level": "high",
+        "classification": "central",
+        "evidence_id": "ev_ecosystem_3",
+        "incompatibility_argument": "Pattern 'Unsupported dependency 'pandas': No production-grade columnar DataFrame equivalent with vectorization in Node.js.' in 'matrix_engine.py' relies on Python runtime/ecosystem semantics lacking a 1:1 native TypeScript/Node.js equivalent.",
+        "mitigation_argument": "Could attempt to offload ecosystem pattern in 'matrix_engine.py' to worker_threads or external service.",
+        "rationale": "Classified as central with high risk based on module centrality and AST pattern (ecosystem)."
+      },
+      {
+        "adjusted_risk_level": "high",
+        "classification": "central",
+        "evidence_id": "ev_concurrency_1",
+        "incompatibility_argument": "Pattern 'Imports 'multiprocessing' for multi-process parallelism incompatible with Node.js single-threaded event loop.' in 'parallel_worker.py' relies on Python runtime/ecosystem semantics lacking a 1:1 native TypeScript/Node.js equivalent.",
+        "mitigation_argument": "Could attempt to offload concurrency pattern in 'parallel_worker.py' to worker_threads or external service.",
+        "rationale": "Classified as central with high risk based on module centrality and AST pattern (concurrency)."
+      },
+      {
+        "adjusted_risk_level": "high",
+        "classification": "central",
+        "evidence_id": "ev_concurrency_2",
+        "incompatibility_argument": "Pattern 'Uses multi-process/shared-memory primitives (ProcessPoolExecutor) from 'concurrent.futures'.' in 'parallel_worker.py' relies on Python runtime/ecosystem semantics lacking a 1:1 native TypeScript/Node.js equivalent.",
+        "mitigation_argument": "Could attempt to offload concurrency pattern in 'parallel_worker.py' to worker_threads or external service.",
+        "rationale": "Classified as central with high risk based on module centrality and AST pattern (concurrency)."
+      },
+      {
+        "adjusted_risk_level": "high",
+        "classification": "central",
+        "evidence_id": "ev_concurrency_3",
+        "incompatibility_argument": "Pattern 'Uses multi-process/shared-memory primitives (SharedMemory) from 'multiprocessing.shared_memory'.' in 'parallel_worker.py' relies on Python runtime/ecosystem semantics lacking a 1:1 native TypeScript/Node.js equivalent.",
+        "mitigation_argument": "Could attempt to offload concurrency pattern in 'parallel_worker.py' to worker_threads or external service.",
+        "rationale": "Classified as central with high risk based on module centrality and AST pattern (concurrency)."
+      },
+      {
+        "adjusted_risk_level": "high",
+        "classification": "central",
+        "evidence_id": "ev_concurrency_4",
+        "incompatibility_argument": "Pattern 'Instantiates CPU-bound process pool or shared memory 'SharedMemory()'.' in 'parallel_worker.py' relies on Python runtime/ecosystem semantics lacking a 1:1 native TypeScript/Node.js equivalent.",
+        "mitigation_argument": "Could attempt to offload performance pattern in 'parallel_worker.py' to worker_threads or external service.",
+        "rationale": "Classified as central with high risk based on module centrality and AST pattern (performance)."
+      },
+      {
+        "adjusted_risk_level": "high",
+        "classification": "central",
+        "evidence_id": "ev_concurrency_5",
+        "incompatibility_argument": "Pattern 'Instantiates CPU-bound process pool or shared memory 'ProcessPoolExecutor()'.' in 'parallel_worker.py' relies on Python runtime/ecosystem semantics lacking a 1:1 native TypeScript/Node.js equivalent.",
+        "mitigation_argument": "Could attempt to offload performance pattern in 'parallel_worker.py' to worker_threads or external service.",
+        "rationale": "Classified as central with high risk based on module centrality and AST pattern (performance)."
+      },
+      {
+        "adjusted_risk_level": "high",
+        "classification": "central",
+        "evidence_id": "ev_metaprogramming_1",
+        "incompatibility_argument": "Pattern 'Dynamic code execution via 'eval()' cannot be statically typed in TypeScript.' in 'pipeline.py' relies on Python runtime/ecosystem semantics lacking a 1:1 native TypeScript/Node.js equivalent.",
+        "mitigation_argument": "Could attempt to offload metaprogramming pattern in 'pipeline.py' to worker_threads or external service.",
+        "rationale": "Classified as central with high risk based on module centrality and AST pattern (metaprogramming)."
+      }
+    ],
+    "overall_architectural_notes": "Central high-risk architectural patterns detected; direct migration to Node.js/TypeScript is unsafe.",
+    "suggested_alternatives": [
+      "Go (native goroutines and multi-core CPU parallelism)",
+      "Rust (zero-cost abstractions, Rayon data parallelism, and SIMD ndarray ecosystem)",
+      "Hybrid architecture: keep CPU/scientific core in Python microservice and expose gRPC/HTTP to Node.js"
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+[
+  {
+    "id": "ev_concurrency_1",
+    "axis": "concurrency",
+    "risk_level": "high",
+    "detector": "concurrency",
+    "file_path": "parallel_worker.py",
+    "line": 3,
+    "snippet": "from concurrent.futures import ProcessPoolExecutor",
+    "symbol": "ProcessPoolExecutor",
+    "description": "Uses multi-process/shared-memory primitives (ProcessPoolExecutor) from 'concurrent.futures'."
+  },
+  {
+    "id": "ev_ecosystem_1",
+    "axis": "ecosystem",
+    "risk_level": "high",
+    "detector": "ecosystem",
+    "file_path": "matrix_engine.py",
+    "line": 4,
+    "snippet": "import numpy as np",
+    "symbol": "numpy",
+    "description": "Unsupported dependency 'numpy': No mature equivalent for N-dimensional SIMD C/Fortran arrays and broadcasting in Node.js."
+  }
+]

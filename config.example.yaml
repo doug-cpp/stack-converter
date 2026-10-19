@@ -1,0 +1,36 @@
+# StackConverter Configuration
+# Copy this file to config.yaml to customize provider, target stack, and concurrency settings.
+
+default_provider: fake               # Options: fake | gemini_api | claude_subscription
+default_source_stack: python         # Source language/ecosystem
+default_target_stack: typescript-node # Active PoC target stack (aliases: typescript, ts, node)
+
+models:
+  gemini_api: gemini-2.5-pro
+  claude_subscription: claude-sonnet-4-5
+  fake: fake-deterministic-v1
+
+concurrency:
+  gemini_api: 5
+  claude_subscription: 2
+  fake: 16
+
+role_providers:
+  documenter: null       # Inherits default_provider when null
+  judge: null
+  characterizer: null
+  translator: null
+  fixer: null
+
+paths:
+  cache_dir: cache
+  demo_cache_dir: demo_cache
+  runs_dir: runs
+  libmap_path: libmap/python_to_ts.yaml
+  rules_path: rules/typescript.md
+
+validation:
+  max_fix_attempts: 3
+  run_tsc: true
+  run_eslint: true
+  run_characterization: true

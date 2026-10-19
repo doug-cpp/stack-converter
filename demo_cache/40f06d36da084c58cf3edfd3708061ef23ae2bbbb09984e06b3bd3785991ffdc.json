@@ -1,0 +1,38 @@
+{
+  "key": "40f06d36da084c58cf3edfd3708061ef23ae2bbbb09984e06b3bd3785991ffdc",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "documenter",
+    "schema": "NodeDoc"
+  },
+  "response": {
+    "concurrency_model": "Synchronous single-threaded execution",
+    "edge_cases": [
+      "Empty inputs",
+      "Zero or negative numeric values"
+    ],
+    "error_model": "Raises standard Error on invalid domain parameters",
+    "external_dependencies": [
+      "discounts",
+      "tax_rules"
+    ],
+    "inputs": [
+      "Module-level inputs"
+    ],
+    "invariants": [
+      "Deterministic outputs for identical inputs",
+      "Strict numeric and string bounds"
+    ],
+    "node_id": "pricing",
+    "outputs": [
+      "Deterministic return value"
+    ],
+    "purpose": "Order pricing calculator combining discounts and regional tax rules (Topological Level 1).",
+    "side_effects": [
+      "None (pure computation)"
+    ]
+  }
+}

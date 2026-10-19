@@ -218,3 +218,12 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# StackConverter artifacts and local config
+runs/
+cache/
+config.yaml
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+node_modules/

@@ -1,0 +1,23 @@
+{
+  "key": "6d45f33c6f0bef3af909cab7b23cd267ec43f62f60dfd3164c97864cd0dce108",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "translator",
+    "schema": "ModuleCode"
+  },
+  "response": {
+    "exported_signatures": [
+      "export function tier_discount_rate(tier: string): number",
+      "export function apply_tier_discount(subtotal: number, tier: string): number",
+      "export function coupon_discount_amount(subtotal: number, coupon_code: string): number",
+      "export function best_discount(subtotal: number, tier: string, coupon_code: string): number"
+    ],
+    "module_id": "discounts",
+    "notes": "Deterministically translated discounts from Python AST to strict TypeScript.",
+    "target_path": "src/discounts.ts",
+    "typescript_code": "/**\n * Customer tier and promotional coupon discount logic (Topological Level 0).\n */\n\nexport function tier_discount_rate(tier: string): number {\n  let normalized = tier.trim().toLowerCase();\n  if ((normalized === \"platinum\")) {\n    return 0.15;\n  }\n  if ((normalized === \"gold\")) {\n    return 0.1;\n  }\n  if ((normalized === \"silver\")) {\n    return 0.05;\n  }\n  return 0.0;\n}\n\nexport function apply_tier_discount(subtotal: number, tier: string): number {\n  if ((subtotal <= 0.0)) {\n    return 0.0;\n  }\n  let rate = tier_discount_rate(tier);\n  return (Math.round(((subtotal * rate) + Number.EPSILON) * Math.pow(10, 2)) / Math.pow(10, 2));\n}\n\nexport function coupon_discount_amount(subtotal: number, coupon_code: string): number {\n  if ((subtotal <= 0.0)) {\n    return 0.0;\n  }\n  let code = coupon_code.trim().toUpperCase();\n  if ((code === \"SAVE10\")) {\n    return (Math.round(((subtotal * 0.1) + Number.EPSILON) * Math.pow(10, 2)) / Math.pow(10, 2));\n  }\n  if ((code === \"WELCOME20\")) {\n    return Math.min((Math.round(((subtotal * 0.2) + Number.EPSILON) * Math.pow(10, 2)) / Math.pow(10, 2)), 50.0);\n  }\n  if ((code === \"FLAT15\")) {\n    return ((subtotal >= 75.0) ? 15.0 : 0.0);\n  }\n  return 0.0;\n}\n\nexport function best_discount(subtotal: number, tier: string, coupon_code: string): number {\n  if ((subtotal <= 0.0)) {\n    return 0.0;\n  }\n  let tier_amt = apply_tier_discount(subtotal, tier);\n  let coupon_amt = coupon_discount_amount(subtotal, coupon_code);\n  let combined = (((tier_amt > 0.0) && (coupon_amt > 0.0)) ? (tier_amt + (coupon_amt * 0.5)) : Math.max(tier_amt, coupon_amt));\n  let cap = (Math.round(((subtotal * 0.3) + Number.EPSILON) * Math.pow(10, 2)) / Math.pow(10, 2));\n  return (Math.round((Math.min(combined, cap) + Number.EPSILON) * Math.pow(10, 2)) / Math.pow(10, 2));\n}\n"
+  }
+}

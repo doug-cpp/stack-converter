@@ -1,0 +1,107 @@
+# Declarative Python -> TypeScript / Node.js Library Equivalence Map
+stdlib:
+  math:
+    ts_equivalent: "Math (built-in)"
+    status: stdlib
+    notes: "Use global Math object in TypeScript."
+  json:
+    ts_equivalent: "JSON (built-in)"
+    status: stdlib
+    notes: "Use JSON.parse and JSON.stringify."
+  datetime:
+    ts_equivalent: "Date / Intl.DateTimeFormat"
+    status: stdlib
+    notes: "Use built-in Date or Temporal polyfill."
+  pathlib:
+    ts_equivalent: "node:path + node:fs"
+    status: stdlib
+    notes: "Use path and fs/promises from Node.js standard library."
+  re:
+    ts_equivalent: "RegExp (built-in)"
+    status: stdlib
+    notes: "Use native JavaScript RegExp."
+  typing:
+    ts_equivalent: "TypeScript native type system"
+    status: stdlib
+    notes: "Map directly to TypeScript interfaces, generics, and union types."
+  dataclasses:
+    ts_equivalent: "TypeScript interface / class"
+    status: stdlib
+    notes: "Translate @dataclass to exported TypeScript interface or class."
+  enum:
+    ts_equivalent: "TypeScript enum / union type"
+    status: stdlib
+    notes: "Translate Enum/StrEnum to string literal unions or const enums."
+  collections:
+    ts_equivalent: "Map / Set / Record"
+    status: stdlib
+    notes: "Use native Map, Set, or typed Record."
+  decimal:
+    ts_equivalent: "number (with rounding helpers) or decimal.js"
+    status: stdlib
+    notes: "Use deterministic rounding or decimal.js when arbitrary precision is required."
+  functools:
+    ts_equivalent: "Array.prototype.reduce / higher-order functions"
+    status: stdlib
+    notes: "Use native closures and functional array methods."
+  itertools:
+    ts_equivalent: "Iterator helpers / Array methods"
+    status: stdlib
+    notes: "Use native generator functions or array combinators."
+  uuid:
+    ts_equivalent: "node:crypto (randomUUID)"
+    status: stdlib
+    notes: "Use crypto.randomUUID()."
+  hashlib:
+    ts_equivalent: "node:crypto (createHash)"
+    status: stdlib
+    notes: "Use crypto.createHash('sha256')."
+
+third_party:
+  pydantic:
+    ts_equivalent: "zod"
+    npm_package: "zod"
+    status: mapped
+    notes: "Translate Pydantic BaseModel schemas to Zod schemas or TypeScript interfaces."
+  requests:
+    ts_equivalent: "fetch (Node 20+ native)"
+    npm_package: null
+    status: mapped
+    notes: "Use global fetch API."
+  httpx:
+    ts_equivalent: "fetch (Node 20+ native)"
+    npm_package: null
+    status: mapped
+    notes: "Use global async fetch API."
+  pytest:
+    ts_equivalent: "vitest / node:test"
+    npm_package: "vitest"
+    status: mapped
+    notes: "Test runner mapped to node:test or vitest."
+
+unsupported:
+  numpy:
+    ts_equivalent: null
+    npm_package: null
+    status: unsupported
+    notes: "No mature equivalent for N-dimensional SIMD C/Fortran arrays and broadcasting in Node.js."
+  pandas:
+    ts_equivalent: null
+    npm_package: null
+    status: unsupported
+    notes: "No production-grade columnar DataFrame equivalent with vectorization in Node.js."
+  scipy:
+    ts_equivalent: null
+    npm_package: null
+    status: unsupported
+    notes: "Scientific computing routines depend on native Fortran/C LAPACK/BLAS bindings."
+  torch:
+    ts_equivalent: null
+    npm_package: null
+    status: unsupported
+    notes: "Deep learning tensor autograd engine requires CUDA/C++ runtime."
+  multiprocessing:
+    ts_equivalent: null
+    npm_package: null
+    status: unsupported
+    notes: "True multi-core process pools and shared memory locks conflict with Node.js single-threaded V8 event loop."

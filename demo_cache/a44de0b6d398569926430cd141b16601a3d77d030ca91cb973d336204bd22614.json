@@ -1,0 +1,22 @@
+{
+  "key": "a44de0b6d398569926430cd141b16601a3d77d030ca91cb973d336204bd22614",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "translator",
+    "schema": "ModuleCode"
+  },
+  "response": {
+    "exported_signatures": [
+      "export function compute_discounted_subtotal(gross_subtotal: number, tier: string, coupon_code: string): number",
+      "export function compute_final_price(gross_subtotal: number, tier: string, coupon_code: string, region: string): number",
+      "export function estimate_bulk_unit_price(unit_price: number, quantity: number): number"
+    ],
+    "module_id": "pricing",
+    "notes": "Deterministically translated pricing from Python AST to strict TypeScript.",
+    "target_path": "src/pricing.ts",
+    "typescript_code": "/**\n * Order pricing calculator combining discounts and regional tax rules (Topological Level 1).\n */\n\nimport { best_discount } from \"./discounts\";\n\nimport { calculate_tax, round_currency } from \"./tax_rules\";\n\nexport function compute_discounted_subtotal(gross_subtotal: number, tier: string, coupon_code: string): number {\n  if ((gross_subtotal <= 0.0)) {\n    return 0.0;\n  }\n  let disc = best_discount(gross_subtotal, tier, coupon_code);\n  return round_currency(Math.max(0.0, (gross_subtotal - disc)), 2);\n}\n\nexport function compute_final_price(gross_subtotal: number, tier: string, coupon_code: string, region: string): number {\n  let net_subtotal = compute_discounted_subtotal(gross_subtotal, tier, coupon_code);\n  let tax = calculate_tax(net_subtotal, region);\n  return round_currency((net_subtotal + tax), 2);\n}\n\nexport function estimate_bulk_unit_price(unit_price: number, quantity: number): number {\n  if (((unit_price <= 0.0) || (quantity <= 0))) {\n    return 0.0;\n  }\n  if ((quantity >= 100)) {\n    return round_currency((unit_price * 0.85), 2);\n  }\n  if ((quantity >= 25)) {\n    return round_currency((unit_price * 0.92), 2);\n  }\n  if ((quantity >= 10)) {\n    return round_currency((unit_price * 0.96), 2);\n  }\n  return round_currency(unit_price, 2);\n}\n"
+  }
+}

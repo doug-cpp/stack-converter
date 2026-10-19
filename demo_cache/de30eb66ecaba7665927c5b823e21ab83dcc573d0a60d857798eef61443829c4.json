@@ -1,0 +1,96 @@
+{
+  "key": "de30eb66ecaba7665927c5b823e21ab83dcc573d0a60d857798eef61443829c4",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "characterizer",
+    "schema": "CharacterizationProposal"
+  },
+  "response": {
+    "cases": [
+      {
+        "args": [
+          100.0,
+          "gold"
+        ],
+        "expected_output": null,
+        "function_name": "apply_tier_discount",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          250.0,
+          "silver"
+        ],
+        "expected_output": null,
+        "function_name": "apply_tier_discount",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          100.0,
+          "gold",
+          "SAVE10"
+        ],
+        "expected_output": null,
+        "function_name": "best_discount",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          250.0,
+          "silver",
+          "WELCOME20"
+        ],
+        "expected_output": null,
+        "function_name": "best_discount",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          100.0,
+          "SAVE10"
+        ],
+        "expected_output": null,
+        "function_name": "coupon_discount_amount",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          250.0,
+          "WELCOME20"
+        ],
+        "expected_output": null,
+        "function_name": "coupon_discount_amount",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          "gold"
+        ],
+        "expected_output": null,
+        "function_name": "tier_discount_rate",
+        "kwargs": {},
+        "raises_exception": null
+      },
+      {
+        "args": [
+          "silver"
+        ],
+        "expected_output": null,
+        "function_name": "tier_discount_rate",
+        "kwargs": {},
+        "raises_exception": null
+      }
+    ],
+    "module_id": "discounts"
+  }
+}

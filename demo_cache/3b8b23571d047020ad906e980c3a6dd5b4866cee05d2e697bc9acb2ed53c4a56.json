@@ -1,0 +1,22 @@
+{
+  "key": "3b8b23571d047020ad906e980c3a6dd5b4866cee05d2e697bc9acb2ed53c4a56",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "translator",
+    "schema": "ModuleCode"
+  },
+  "response": {
+    "exported_signatures": [
+      "export function compute_line_total(unit_price: number, quantity: number): number",
+      "export function sum_line_totals(prices: Array<number>): number",
+      "export function compute_invoice_net_total(prices: Array<number>, tier: string, region: string): number"
+    ],
+    "module_id": "invoice",
+    "notes": "Deterministically translated invoice from Python AST to strict TypeScript.",
+    "target_path": "src/invoice.ts",
+    "typescript_code": "/**\n * Invoice line-item calculation and breakdown generation (Topological Level 1).\n */\n\nimport { apply_tier_discount } from \"./discounts\";\n\nimport { calculate_tax, round_currency } from \"./tax_rules\";\n\nexport function compute_line_total(unit_price: number, quantity: number): number {\n  if (((unit_price < 0.0) || (quantity <= 0))) {\n    return 0.0;\n  }\n  return round_currency((unit_price * quantity), 2);\n}\n\nexport function sum_line_totals(prices: Array<number>): number {\n  if ((prices.length === 0)) {\n    return 0.0;\n  }\n  let total = 0.0;\n  for (const p of prices) {\n    if ((p > 0.0)) {\n      total += p;\n    }\n  }\n  return round_currency(total, 2);\n}\n\nexport function compute_invoice_net_total(prices: Array<number>, tier: string, region: string): number {\n  let gross = sum_line_totals(prices);\n  let discount = apply_tier_discount(gross, tier);\n  let net = round_currency(Math.max(0.0, (gross - discount)), 2);\n  let tax = calculate_tax(net, region);\n  return round_currency((net + tax), 2);\n}\n"
+  }
+}

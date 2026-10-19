@@ -1,0 +1,38 @@
+{
+  "key": "e6a1ba679f9fe5d3d45fb444021c3e663351e762bb5cf55adf12ffe3cbde96c3",
+  "metadata": {
+    "attempt": 1,
+    "model": "fake-deterministic-v1",
+    "prompt_version": "1.0",
+    "provider": "fake",
+    "role": "documenter",
+    "schema": "NodeDoc"
+  },
+  "response": {
+    "concurrency_model": "Synchronous single-threaded execution",
+    "edge_cases": [
+      "Empty inputs",
+      "Zero or negative numeric values"
+    ],
+    "error_model": "Raises standard Error on invalid domain parameters",
+    "external_dependencies": [
+      "matrix_engine",
+      "parallel_worker"
+    ],
+    "inputs": [
+      "Module-level inputs"
+    ],
+    "invariants": [
+      "Deterministic outputs for identical inputs",
+      "Strict numeric and string bounds"
+    ],
+    "node_id": "pipeline",
+    "outputs": [
+      "Deterministic return value"
+    ],
+    "purpose": "Orchestrator combining CPU-bound multiprocessing and dynamic formula eval.",
+    "side_effects": [
+      "None (pure computation)"
+    ]
+  }
+}
